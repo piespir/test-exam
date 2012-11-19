@@ -33,10 +33,10 @@ class Login implements SplSubject {
 
     public function notify() {
 
-        $pdo = new mysqli('localhost', 'root', 'igor123@', 'test');
+        $pdo = new mysqli('localhost', 'root', 'igorWWQ', 'test');
         $q = $pdo->query("select * from users where login='{$this->data['login']}' and senha=MD5('{$this->data['senha']}')");
         $r = $q->fetch_object();
-        
+
         if ($r) {
             $this->setName($r->nome);
             foreach ($this->observers as $observer) {
